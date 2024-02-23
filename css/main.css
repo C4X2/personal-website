@@ -1,0 +1,127 @@
+body, h1, h2, h3, h4, h5, p { font-family : "Fira Code" }
+
+.about-me-text {
+    color: #888888;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-transform: none;
+}
+
+.about-me-link {
+	color: #554d75 !important;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-transform: none;
+}
+
+.about-me-header {
+    color: #888888;
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+    text-transform: none;
+}
+
+.border-bright {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(75,45,123,0.2), var(--bs-border-opacity)) !important;
+}
+
+.card-list-item {
+	list-style-type: none;
+	padding-bottom: .5rem;
+}
+
+.grey-text-color {
+	color: #888888;
+}
+
+.font-fira {
+	font-family : "Fire Code";
+}
+
+.fira-text {
+    color: #888888;
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-transform: none;
+	text-decoration: none;
+}
+
+.fira-link {
+    color: #888888;
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-transform: none;
+}
+
+.no-dec-link {
+    text-decoration: none;
+}
+
+.hidden-img {
+	display : none;
+}
+
+.shadow-hidden {
+	display : none;
+}
+
+.h-w-15 {
+	width: 15%;
+	height: 15%;
+}
+
+.text-color-dg {
+	color: darkgrey !important;
+}
+
+.white-pulse {
+  animation: white-pulse-animation 2s infinite;
+}
+
+@keyframes white-pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(95, 151, 153, 0.33);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}

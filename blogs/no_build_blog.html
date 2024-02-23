@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Title Page-->
+        <title>Nate Brown's Personal Website</title>
+        <!--Custom CSS -->
+        <link rel="stylesheet" href="../css/main.css" />
+        <!-- Bootstrap Links -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/fira.css">
+    </head>
+    <body>
+        <div data-nbd-backnav></div>
+        <div class="container fira-text">
+            <div class="pb-5" data-nbd-spacer></div>
+            <h1 id="why_i_chose_nobuild_for_my_website">Why I chose #nobuild for my website</h1>
+            <h3 id="or_why_i_am_using_jquery_in_2024">Or, why I am using jQuery in 2024.</h3>
+            <div id="tags_for_blog_1">
+                <span class="badge text-bg-secondary bg-opacity-25 bg-transparent border border-primary">#nobuild</span>
+                <span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">UI</span>
+                <span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Personal Development</span>
+            </div>
+            <h4 class="mt-2">3 minute read</h4>
+            <div class="pb-3" data-nbd-spacer></div>
+            <p>It was that time of year again. We&#39;d just pushed another wave of changes into production, all was going well and our customer seemed happy. Well, they&#39;d be satisfied at the very least, but what enterprise customer is ever truly content with the state of their software? The next few days at my job were definitely going to be slow as the team reorients and decides on the next steps in the project. Normally, I take this time to learn something new. In previous work lulls, I&#39;ve taken the opportunity to expand my horizons from the tech stack used at work to something new to me. But these have primarily focused on back-end tech since that is what I&#39;ve specialized in. I&#39;ve fooled around in Rust, Go, and C++. There are things I appreciate about each language individually, but that is a story for another time. I thought about this lull in work, but I struggled to come up with anything that piqued my excitement, perhaps I&#39;d end up just picking a back-end language and try my hand at creating a basic terminal application or something similar. </p>
+            <p> But then I saw <a class="no-dec-link" href="(https://www.twitch.tv/ThePrimeagen)">[The Primeagean]</a>, react to an article from DHH about #nobuild. I hadn&#39;t worked in Javascript (or TypeScript) since I graduated 5 years ago when I determined back-end development was more for me. Then the thought hit me while watching the video, this is a perfect time to bring out my old website and see if I can&#39;t spruce it up and release it. I would be working on the front-end and the back-end and earn the title of full-stack developer. At the moment I had not committed to #nobuild, even though it is what inspired me to do a personal website development. </p>
+            <h1 id="the_state_of_modern_javascript">The state of modern Javascript</h1>
+            <p> It was at this moment I got began to get familiar with the state of modern Javascript. Things seem to have changed quite a bit in the five years since I worked on the front-end. There was a lot of buzz about Angular in the government tech scene that seems to have died out now, in favor of React and other technologies. Speaking of React, there is so much complexity built into its ecosystem! There are bundlers, build systems, linters, testing frameworks, caches, and meta-programming frameworks, it&#39;s looking more like backend every day! </p>
+            <p>Though tongue-in-cheek, the complexity of the modern Javascript ecosystem is quite high. As someone desperately out of practice, I needed something simple and straight-forward, I needed #nobuild. I think not having a build system speeds up some parts of trying a new language since you don&#39;t have to wait for changes to be reflected, just need to refresh the page. Also, not having a build system, bundler or things like that greatly simplified the space I was trying to learn. The only things on my website are blogs and static text, no need to spend so much time abstracting. </p>
+            <p>Even though my site is simple, I still needed some efficient DOM manipulation, so I decided to incorporate jQuery into my site. Yes, jQuery is <a class="no-dec-link" href="https://blog.jquery.com/2024/02/06/jquery-4-0-0-beta/">still around</a>. It is old tech in terms of internet years, but it was the perfect tool for the job. Lightweight, easy to understand, and provides functionality without forcing you to change the way you structure your files. The limited scope of the project, the instant feedback loop, and the solo development, meant that a lot of the benefits of TypeScript weren&#39;t actually needed here. There is something rewarding about using the simplest tool for the job and getting it done. </p>
+            <h1 id="lessons_learned">Lessons Learned</h1>
+            <p>I enjoyed making my site from Bootstrap and jQuery. I also feel it looks pretty snazzy for an end result, if I do say so myself. Looking back, I wouldn&#39;t change how I approach this problem and I&#39;m confident that getting familiar with the bare bones of Javascript, rather than using TypeScript or other tools associated with React, will help in my future projects. Focusing on #nobuild, let me think about the problem at hand rather than getting caught up in learning all the toolings associated with front-end. Tools come and go far faster than languages, so learning the language fundamentals of Javascript will help in any tool have to master in the future. Looking forward, I am currently working on 2 separate web projects, one using React and one using htmx. Wish this back-end developer luck :)</p>
+        </div>
+        <footer class="text-center"><!--TODO: Add responsive fixed bottom ->
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1 bg-dark" href="https://www.linkedin.com/in/nathaniel-brown-44917711b" role="button" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1 bg-dark" href="https://github.com/C4X2" role="button" target="_blank">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <!-- Email -->
+                    <a id="email_link" class="btn btn-outline-light btn-floating m-1 bg-dark" onclick="writeClipboardText('natebrownwebapp@gmail.com', 'email_link')" role="button" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Copied!">
+                        <i class="bi bi-envelope-fill" title="Copy email"></i>
+                    </a>
+                </section>
+                <!-- Section: Social media -->
+                <!-- Section: Text -->
+                <section class="mb-4">
+                    <p class="about-me-text"> Made with <span style="color:red; font-family: var(--bs-font-sans-serif);">&#10084;</span>. Click <a class="no-dec-link" target="_blank" href="../resume/resume.pdf" download>here</a> to download my resume. </p>
+                </section>
+                <!-- Section: Text -->
+            </div>
+            <!-- Grid container -->
+        </footer>
+        <!-- Jquery JS-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <!-- Main JS-->
+		<script src="../js/nav.js"></script>
+		<script src="../js/footer.js"/></script>
+        <script src="../js/global.js"></script>	
+    </body>
+</html>

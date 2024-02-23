@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Title Page-->
+        <title>Nate Brown's Personal Website</title>
+        <!--Custom CSS -->
+        <link rel="stylesheet" href="css/main.css" />
+        <!-- Bootstrap Links -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/fira.css">
+	</head>
+	<body>
+		<nav id="main_nav_elem" class="navbar" data-bs-theme="dark">
+            <div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#top_level_nav" aria-controls="top_level_nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+					<div class="collapse navbar-collapse" id="top_level_nav">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="blogs.html">Blog Posts</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+        </nav>
+		<div class="container">
+			<div class="pb-5" data-nbd-spacer></div>
+			<div>
+				<h1 class="fira-text" style="text-align: center;">Posts</h1>
+			</div>
+			<div class="pb-5" data-nbd-spacer></div>
+			<div>
+				<ul>
+					<li class="card-list-item">
+						<div class="card">
+						<a href="blogs/no_build_blog.html" class="fira-text">	
+							<div class="card-body fira-text">
+								Why I decided to go with #noBuild <br/>
+								<div id="tags_for_blog_1"><span class="badge text-bg-secondary bg-opacity-25 bg-transparent border border-primary">#nobuild</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">UI</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Personal Development</span></div>
+							</div>
+							</a>
+						</div>
+					</li>					
+					<li class="card-list-item">
+						<div class="card">
+						<a href="blogs/end_of_software.html" class="fira-text">						
+							<div class="card-body">
+								<div class="card-subtitle fira-text">
+									The End of Artisanal Software
+								</div>
+								<div id="tags_for_blog_2"><span class="badge text-bg-secondary bg-opacity-25 bg-transparent border border-primary">Opinion</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">AI</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Future of Work</span></div>
+							</div>
+							</a>
+						</div>
+					</li>
+					<!-- A Future post
+					<li class="card-list-item">
+						<div class="card">
+						<a href="blogs/end_of_software.html" class="fira-text">						
+							<div class="card-body">
+								<div class="card-subtitle fira-text">
+									How I deployed my site to AWS
+								</div>
+								<div id="tags_for_blog_2"><span class="badge text-bg-secondary bg-opacity-25 bg-transparent border border-primary">AWS</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Infrastructure</span><span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Tutorial</span></div>
+							</div>
+							</a>
+						</div>
+					</li>
+					-->					
+				</ul>
+			</div>
+		</div>
+        <footer class="text-center fixed-bottom"><!--TODO: Add responsive fixed bottom ->
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1 bg-dark" href="https://www.linkedin.com/in/nathaniel-brown-44917711b" role="button" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1 bg-dark" href="https://github.com/C4X2" role="button" target="_blank">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <!-- Email -->
+                    <a id="email_link" class="btn btn-outline-light btn-floating m-1 bg-dark" onclick="writeClipboardText('natebrownwebapp@gmail.com', 'email_link')" role="button" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Copied!">
+                        <i class="bi bi-envelope-fill" title="Copy email"></i>
+                    </a>
+                </section>
+                <!-- Section: Social media -->
+                <!-- Section: Text -->
+                <section class="mb-4">
+                    <p class="about-me-text"> Made with <span style="color:red; font-family: var(--bs-font-sans-serif);">&#10084;</span>. Click <a class="no-dec-link" target="_blank" href="resume/resume.pdf" download>here</a> to go to my resume. </p>
+                </section>
+                <!-- Section: Text -->
+            </div>
+            <!-- Grid container -->
+        </footer>
+		<!-- Jquery JS-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<!-- Main JS-->
+		<script src="js/global.js"></script>
+		<script src="js/nav.js"></script>
+</body>
+
+</html>
