@@ -98,6 +98,7 @@ function hideItemText(item) {
 	if (item != null && (item.getAttribute('data-nbd-twtext') == null || item.getAttribute('data-nbd-twtext') == undefined)) {
 		item.style.color = item.style.color.replace('var(--bs-body-bg)', '');
         item.setAttribute('data-nbd-twtext', item.innerHTML);
+		const textLength = item.innerHTML.length;
         item.innerHTML = '';
     }
 }
