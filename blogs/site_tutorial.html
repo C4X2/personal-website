@@ -27,7 +27,7 @@
             <div id="tags_for_blog_1">
                 <span class="badge text-bg-secondary bg-opacity-25 bg-transparent border border-primary">Tutorial</span>
                 <span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">AWS</span>
-                <span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Clouflare</span>
+                <span class="badge text-bg-secondary ms-1 bg-opacity-25 bg-transparent border border-primary">Cloudflare</span>
             </div>
             <h4 class="mt-4">14 minute read</h4>
 	        <div class="pb-3" data-nbd-spacer></div>
@@ -37,37 +37,37 @@
 			</p>
 			<h2 id="background">Background</h2>
 			<p>
-			I choose AWS as a hosting solution due to it's generous free tier and relevance to the industry. Around 6% of all websites are <a class="no-dec-link" href="https://w3techs.com/technologies/details/ho-amazon">hosted on AWS</a>. Not a measly contender by any means. It might seem like overkill and to host a static website in the cloud, but as long as it is free, I see no harm in doing so.
-			Likewise, Clouflare has a large marketshare in the static websites business and also has a generous free tier. So far, I haven't paid a cent in hosting fees and my site has achieved high up-time and availability. Theoritically, you could do everything in AWS but I decided to branch out to Cloudflare for a CDN, which I discuss <a class="no-dec-link" href="#aws_downside">later</a> in the blog.
+			I chose AWS as a hosting solution due to its generous free tier and relevance to the industry. Around 6% of all websites are <a class="no-dec-link" href="https://w3techs.com/technologies/details/ho-amazon">hosted on AWS</a>. Not a measly contender by any means. It might seem like overkill to host a static website in the cloud, but as long as it is free, I see no harm in doing so.
+			Likewise, Cloudflare has a large market share in the static websites business and also has a generous free tier. So far, I haven't paid a cent in hosting fees and my site has achieved high uptime and availability. Theoretically, you could do everything in AWS, but I decided to branch out to Cloudflare for a CDN, which I discuss <a class="no-dec-link" href="#aws_downside">later</a> in the blog.
 			</p>
-			<h2 id="prereqs">Prerequisities</h2>
+			<h2 id="prereqs">Prerequisites</h2>
 			<p>
-			As a prerequisite, you should have
+			As a prerequisite, you should have:
 			<ul>
 				<li>An AWS Account</li>
 				<li>A Cloudflare Account</li>
 				<li>A static site</li>
 			</ul>
-			That's all you'll need to get started! Hopefully this will help you if you're trying to learn AWS or if you have a website built and trying to decide on a hosting platform. In the tutorial, I do everything through the AWS Management Console and Cloudflare dashboard. If you are feeling a challenge you could do everything through the AWS CLI or Cloudflare CLI.
+			That's all you'll need to get started! Hopefully this will help you if you're trying to learn AWS or if you have a website built and are trying to decide on a hosting platform. In the tutorial, I do everything through the AWS Management Console and Cloudflare dashboard. If you are feeling up for a challenge, you could do everything through the AWS CLI or Cloudflare CLI.
 			</p>
 			<h2 id="steps">Steps</h2>
 			
-				<h3 id="step_1">Step 1 : Getting a Domain Name</h3>
-				<p>To host your content on the internet we'll need a domain name registered with a domain register. AWS has it's own domain registar called Route 53. We'll use this service to buy and set up our domain. Log into your AWS Management Console, then type "Route 53" in the search bar. Click on "Route 53" in the results. On the left side of the screen, click the hamburger navigation icon to expand the sidebar. Then select "Register Domains" from the options.</p>
+				<h3 id="step_1">Step 1: Getting a Domain Name</h3>
+				<p>To host your content on the internet we'll need a domain name registered with a domain registrar. AWS has its own domain registrar called Route 53. We'll use this service to buy and set up our domain. Log into your AWS Management Console, then type "Route 53" in the search bar. Click on "Route 53" in the results. On the left side of the screen, click the hamburger navigation icon to expand the sidebar. Then select "Register Domains" from the options.</p>
 				<div class="pt-2" data-nbd-spacer></div>
-				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Route 53 Getting Started.png" alt="picture of Route 53 homepage on AWS Mangement console, with the navigation icon highlighted" loading="lazy" decoding="async"></img>
-				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Registered Domains Option 2.png" alt="picture of Route 53 homepage with the sidbar expanded and highlight on the Registered Domain option" loading="lazy" decoding="async"></img>
+				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Route 53 Getting Started.png" alt="picture of Route 53 homepage on AWS Management console, with the navigation icon highlighted" loading="lazy" decoding="async"></img>
+				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Registered Domains Option 2.png" alt="picture of Route 53 homepage with the sidebar expanded and highlight on the Registered Domain option" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>This should bring you to the Registered Domains view, hit the "Register domains" button.</p>
+				<p>This should bring you to the Registered Domains view; hit the "Register domains" button.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Registered Domains.png" alt="picture of Route 53 Registered Domains view, with the Register Domain Button highlighted" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Now you can create a domain (think google.com). Domain names are rented from domain resgistar companies for a fee, paid yearly. I went with natebrowndev.com for my domain (obviously) and it only costs $13 a year. There is no getting around this fee as all domain registars charge a fee of some sorts. Though some domain extensions are more expensive than others. See <a class="no-dec-link" target="_blank" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">this</a> document from AWS to find all the supported TLD extensions (not all TLDs are supported by AWS). 
-				The only consideration I would have at this point is, keep the first website name fairly cheap as you can change it later, but don't use too long of a name. No one wants to visit <a id="joke_domain_link" class="no-dec-link">myfirstreactwebsitehostedonawsandcloudflare.technology</a>. Once you have your domain selected and it is available, hit "Proceed to Checkout".</p>
+				<p>Now you can create a domain (think google.com). Domain names are rented from domain registrar companies for a fee, paid yearly. I went with natebrowndev.com for my domain (obviously) and it only costs $13 a year. There is no getting around this fee as all domain registrars charge a fee of some sort. Though some domain extensions are more expensive than others. See <a class="no-dec-link" target="_blank" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">this</a> document from AWS to find all the supported TLD extensions (not all TLDs are supported by AWS). 
+				The only consideration I would have at this point is to keep the first website name fairly cheap as you can change it later, but don't use too long of a name. No one wants to visit <a id="joke_domain_link" class="no-dec-link">myfirstreactwebsitehostedonawsandcloudflare.technology</a>. Once you have your domain selected and it is available, hit "Proceed to Checkout".</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Select domain.png" alt="picture of the Search for Domains view, with the Proceed to Checkout button highlighted" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>On the next screen, you'll see the price of your domain. By default, AWS checks the auto-renew box. If you don't want to auto-renew uncheck this. I plan on using this domain for a while so I kept mine checked. Once you hit, "Next" you'll be brought to a screen asking for personal information. Fill out all the fields under the "Registrant contact" section and leave defaults for the other fields. Hit "Next".</p>
+				<p>On the next screen, you'll see the price of your domain. By default, AWS checks the auto-renew box. If you don't want to auto-renew, uncheck this. I plan on using this domain for a while so I kept mine checked. Once you hit "Next", you'll be brought to a screen asking for personal information. Fill out all the fields under the "Registrant contact" section and leave defaults for the other fields. Hit "Next".</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Domain Pricing.png" alt="picture of the Search for Domain Pricing view" loading="lazy" decoding="async"></img>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Domain Contact.png" alt="picture of the Search for Domain Contact view, with the defaults checked." loading="lazy" decoding="async"></img>		
@@ -76,14 +76,14 @@
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Route 53 Confirmation Screen.png" alt="picture of the Confirmation view in Route 53" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Congradulations! We are done with step 1. It may take up to 24 hours for you domain information to sync across the system, but from experience it never takes that long. My domain was ready in 5 minutes. Now you have your domain name, we can start actually uploading site content.</p>
+				<p>Congratulations! We are done with step 1. It may take up to 24 hours for your domain information to sync across the system, but from experience it never takes that long. My domain was ready in 5 minutes. Now that you have your domain name, we can start actually uploading site content.</p>
 				<h3 id="step_2">Step 2: Setting up the S3 Buckets</h3>
 				<div class="pt-2" data-nbd-spacer></div>
-				<p>Head over to S3 by typing "S3" into the search bar and clicking the result. Then click, "Create Bucket" on the S3 screen.</p>
+				<p>Head over to S3 by typing "S3" into the search bar and clicking the result. Then click "Create Bucket" on the S3 screen.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Create S3 Bucket.png" alt="picture of the Search for Domains view, with the Proceed to Checkout button highlighted" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Once your at the create bucket screen name your bucket. <em>Your bucket name must match your website name exactly</em>, or you might face DNS issues. Later in the tutorial we'll create a second bucket.</p>
+				<p>Once you're at the create bucket screen, name your bucket. <em>Your bucket name must match your website name exactly</em>, or you might face DNS issues. Later in the tutorial we'll create a second bucket.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Naming the bucket.png" alt="picture of the S3 create bucket view within AWS" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
@@ -95,11 +95,11 @@
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Select Bucket from View.png" alt="picture of all S3 buckets" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Once the bucket has been selected. Head over to the "Properties" tab and scroll to the bottom at the "Static website hosting" section. Click "Edit". 
+				<p>Once the bucket has been selected, head over to the "Properties" tab and scroll to the bottom at the "Static website hosting" section. Click "Edit". 
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Edit Static website hosting.png" alt="picture of the S3 bucket configuration options" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				When the new page loads click "Enable" in the "Static website hosting" section and select "Host a static website" in "Hosting type" section. Specify the index document as your homepage/landing page. For me, it was index.html. Optionally, you can specify an error document, if someone tries to navigate to a non-existant page in your site. For me, it was error.html. Then scroll, to the bottom of the page and hit "Save changes".</p>
+				When the new page loads, click "Enable" in the "Static website hosting" section and select "Host a static website" in the "Hosting type" section. Specify the index document as your homepage/landing page. For me, it was index.html. Optionally, you can specify an error document, if someone tries to navigate to a non-existent page in your site. For me, it was error.html. Then scroll to the bottom of the page and hit "Save changes".</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Edit Static website hosting details.png" alt="picture of the S3 bucket configuration options" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
@@ -107,7 +107,7 @@
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Bucket Policy.png" alt="picture of the S3 bucket configuration options" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p> Even though we disabled blocking, so our resources are public, we haven't given permission to anyone to access what is in the bucket. So anyone trying to access a file in our S3 will be meet with a lovely access denied view.</p> So to remedy this, we will add a bucket policy allowing access to our site content. Copy the following code, making sure to replace &lt;YOUR_BUCKET_NAME_HERE&gt; with your actual bucket name.
+				<p> Even though we disabled blocking, so our resources are public, we haven't given permission to anyone to access what is in the bucket. So anyone trying to access a file in our S3 will be met with a lovely access denied view.</p> So to remedy this, we will add a bucket policy allowing access to our site content. Copy the following code, making sure to replace &lt;YOUR_BUCKET_NAME_HERE&gt; with your actual bucket name.
 				<pre>
 					<code style="font-size: .875em;color: var(--bs-code-color);font-family: var(--bs-font-monospace);">
 {
@@ -128,7 +128,7 @@
 }
 					</code>
 				</pre>
-				<p>Or, if you prefer you can generate your own S3 bucket policy by utilizing <a class="no-dec-link" target="_blank" href="https://awspolicygen.s3.amazonaws.com/policygen.html">this</a> link. Just make sure that the <code>s3:GetObject</code> permission is included. That is what allows users to see the website.</p>
+				<p>Or, if you prefer, you can generate your own S3 bucket policy by utilizing <a class="no-dec-link" target="_blank" href="https://awspolicygen.s3.amazonaws.com/policygen.html">this</a> link. Just make sure that the <code>s3:GetObject</code> permission is included. That is what allows users to see the website.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Constructing policy.png" alt="picture of the AWS Policy generator webpage" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
@@ -137,14 +137,14 @@
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Upload to Bucket.png" alt="picture of the S3 bucket Object tab" loading="lazy" decoding="async"></img>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Upload Successful.png" alt="picture of the S3 bucket upload successful message" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Head back to the S3 homepage, we're are going to create a second bucket with the subdomain of <span style="font-family: var(--bs-font-monospace);">www</span>. That way when a user puts <span style="font-family: var(--bs-font-monospace);">www</span>.&ltYOUR_DOMAIN_NAME&gt in the browser they will be redirected to the bucket that contains the content.</p>
-				<p>Make the second bucket with the name of <span style="font-family: var(--bs-font-monospace);">www</span>.&ltYOUR_DOMAIN_NAME&gt then click "Create Bucket". Once the bucket is created, selct into it and head over to the "Properties" tab and scroll to the bottom at the "Static website hosting" section. Click "Edit". Hit "Enable" in the "Static website hosting" section and then select "Redirect Requests for an object". You'll be required to put in the redirection location. It is just the name of your other bucket without the <span style="font-family: var(--bs-font-monospace);">www</span>. Leave protocol as "None". Hit "Save Changes" and you're done configuring this bucket! Since this bucket just redirects to the non-<span style="font-family: var(--bs-font-monospace);">www</span> bucket, AWS will use the other buckets access permissions.
+				<p>Head back to the S3 homepage; we are going to create a second bucket with the subdomain of <span style="font-family: var(--bs-font-monospace);">www</span>. That way when a user puts <span style="font-family: var(--bs-font-monospace);">www</span>.&lt;YOUR_DOMAIN_NAME&gt; in the browser they will be redirected to the bucket that contains the content.</p>
+				<p>Make the second bucket with the name of <span style="font-family: var(--bs-font-monospace);">www</span>.&lt;YOUR_DOMAIN_NAME&gt; then click "Create Bucket". Once the bucket is created, select it and head over to the "Properties" tab and scroll to the bottom at the "Static website hosting" section. Click "Edit". Hit "Enable" in the "Static website hosting" section and then select "Redirect Requests for an object". You'll be required to put in the redirection location. It is just the name of your other bucket without the <span style="font-family: var(--bs-font-monospace);">www</span>. Leave protocol as "None". Hit "Save Changes" and you're done configuring this bucket! Since this bucket just redirects to the non-<span style="font-family: var(--bs-font-monospace);">www</span> bucket, AWS will use the other bucket's access permissions.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/2nd Bucket Website.png" alt="picture of the S3 bucket upload successful message" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
 				<p>One more step down, 2 more to go.</p>
 				<h3 id="returning_to_route">Step 3: Return to Route 53</h3>
-				<p>Now we need to return to Route 53, so that our S3 site can appear under our domain, rather than the AWS generated-name. In Route 53, go to "Hosted Zones" and click on your domain.</p>
+				<p>Now we need to return to Route 53, so that our S3 site can appear under our domain, rather than the AWS-generated name. In Route 53, go to "Hosted Zones" and click on your domain.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Back to Route 53.png" alt="picture of the Route 53 Hosted Zones" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
@@ -152,55 +152,55 @@
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Create record Route 53.png" alt="picture of adding an A record to a Route 53 domain" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>We'll start by defining an A record for the www domain. Type "www" into the record name section. Then select A for the "Record Type". In the "Value/Route traffic to", select Alias to S3 website endpoint, making sure you select the region your bucket is in. In my case, my bucket was in the N.VA region. Finally, select the bucket from the dropdown and turn "Evaluate target health" off. This feature will alert you if the endpoint is unreachable but it is not a free feature.</p>
+				<p>We'll start by defining an A record for the www domain. Type "www" into the record name section. Then select A for the "Record Type". In the "Value/Route traffic to", select Alias to S3 website endpoint, making sure you select the region your bucket is in. In my case, my bucket was in the N.VA region. Finally, select the bucket from the dropdown and turn "Evaluate target health" off. This feature will alert you if the endpoint is unreachable, but it is not a free feature.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Defining the A Record.png" alt="picture of adding an A record created in Route 53" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>After the record is created, hit the "Create Record" button again to create a second A record. This one leave the "Record name" section blank. This will point to the main bucket with the content in it. Then fill out the rest of the info as above, selecting the main bucket from the dropdown.</p>
+				<p>After the record is created, hit the "Create Record" button again to create a second A record. For this one, leave the "Record name" section blank. This will point to the main bucket with the content in it. Then fill out the rest of the info as above, selecting the main bucket from the dropdown.</p>
 				<div class="pt-2" data-nbd-spacer></div>
 				<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Another A record.png" alt="picture of adding an A record created in Route 53" loading="lazy" decoding="async"></img>
 				<div class="pt-4" data-nbd-spacer></div>
-				<p>Congrats! Now that everything is set up in Route 53, your website is available on the web under the domain you purchased previously. However, notice that yor website is only available over http. In order to fix this issue, we'll introduce a CDN service to our website</p>
+				<p>Congrats! Now that everything is set up in Route 53, your website is available on the web under the domain you purchased previously. However, notice that your website is only available over HTTP. In order to fix this issue, we'll introduce a CDN service to our website.</p>
 			<h3 id="step_4">Step 4: Setting up the CDN</h3>
 			<p>
-			Since it is just a static site, you could leave it here. Our site is now available on the internet. BUT, if you look closely it labled "insecure" by Chrome. This is because S3 buckets can only serve content over http.
-			So we need a layer over our Route 53 routing in order to have our content served over https (and thus be secure). Readers might be shocked that Route 53 can't do that for us, but that is because Route 53 is a pure DNS solution.
-			It won't issue SSL certificates and expects the host that connects to it to have those certificates. This is the crux of our problem, our S3 is not a true server in our control, so it can't contain SSL certificates. I chose Cloudflare for that layer. 
+			Since it is just a static site, you could leave it here. Our site is now available on the internet. BUT, if you look closely, it is labeled "insecure" by Chrome. This is because S3 buckets can only serve content over HTTP.
+			So we need a layer over our Route 53 routing in order to have our content served over HTTPS (and thus be secure). Readers might be shocked that Route 53 can't do that for us, but that is because Route 53 is a pure DNS solution.
+			It won't issue SSL certificates and expects the host that connects to it to have those certificates. This is the crux of our problem: our S3 bucket is not a true server in our control, so it can't contain SSL certificates. I chose Cloudflare for that layer. 
 			</p>
-			<h4 id="aws_downside">Cloudflare vs. CloudFront</h2>
+			<h4 id="aws_downside">Cloudflare vs. CloudFront</h4>
 			<p>
-			You could select CloudFront instead of Cloudflare, to serve https content from a S3 bucket to the open internet. CloudFront is the AWS equalivalent of Cloudflare. The reason I chose Clouflare instead of CloudFront is simple. I wanted to diversify my technology stack. I haven't worked with Cloudflare in the past but the same can't be said for CloudFront. 
+			You could select CloudFront instead of Cloudflare to serve HTTPS content from an S3 bucket to the open internet. CloudFront is the AWS equivalent of Cloudflare. The reason I chose Cloudflare instead of CloudFront is simple. I wanted to diversify my technology stack. I haven't worked with Cloudflare in the past, but the same can't be said for CloudFront. 
 			</p>
 			<div class="pt-2" data-nbd-spacer></div>
-			<p>Create a free Cloudflare account. After signing up, Clouflare will force you to verify your email before doing any functionality. Once your email is verified, then go and select "Transfer Domain". Follow the instructions to transfer a domain to Cloudflare, Cloudflare should automatically pickup the domain we registered with AWS.</p>
+			<p>Create a free Cloudflare account. After signing up, Cloudflare will force you to verify your email before doing any functionality. Once your email is verified, go and select "Transfer Domain". Follow the instructions to transfer a domain to Cloudflare; Cloudflare should automatically pick up the domain we registered with AWS.</p>
 			<div class="pt-2" data-nbd-spacer></div>
 			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Cloudflare Transfer Domains Screens.png" alt="picture of Cloudflare Dashboard" loading="lazy" decoding="async"></img>
 			<div class="pt-4" data-nbd-spacer></div>
-			<p>Once you find your domain, review the record that will be imported into Cloudflare, all this should be automatic with no additional configuration. Import your domain, it could take up to 24 hours to sync but in my experience it never takes more than 5 minutes.</p>
-			<p>After your domain is imported to Cloudflare, Cloudflare will provide nameserves used to serve content. We'll need to take these Cloudflare name servers and copy them into Route 53. Back in AWS Management Console head to Route 53. In Route 53, head over to the "Registered Domains" tab and click "Edit"</p>
+			<p>Once you find your domain, review the records that will be imported into Cloudflare; all of this should be automatic with no additional configuration. Import your domain; it could take up to 24 hours to sync, but in my experience it never takes more than 5 minutes.</p>
+			<p>After your domain is imported to Cloudflare, Cloudflare will provide name servers used to serve content. We'll need to take these Cloudflare name servers and copy them into Route 53. Back in the AWS Management Console, head to Route 53. In Route 53, head over to the "Registered Domains" tab and click "Edit".</p>
 			<div class="pt-2" data-nbd-spacer></div>
 			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Renaming Servers.png" alt="picture of Route 53 domains screen, renaming name servers" loading="lazy" decoding="async"></img>
 			<div class="pt-4" data-nbd-spacer></div>
-			<p>Add the two Cloudflare name servers here then, delete the existing AWS name servers. That way you'll use Cloudflare to resolve DNS queries instead of Route 53.</p>
+			<p>Add the two Cloudflare name servers here, then delete the existing AWS name servers. That way you'll use Cloudflare to resolve DNS queries instead of Route 53.</p>
 			<div class="pt-2" data-nbd-spacer></div>
 			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Specify name servers.png" alt="picture of adding an A record created in Route 53" loading="lazy" decoding="async"></img>
 			<div class="pt-4" data-nbd-spacer></div>
-			<p>Since S3 doesn't support https natively, we need to change Cloudflare's Configuration Rule to set the SSL mode to flexible. Back in Cloudflare console, go to "Websites" and select your transfered domain. Then go to the "SSL/TLS" tab then select the encryption mode as "Flexible".</p>
+			<p>Since S3 doesn't support HTTPS natively, we need to change Cloudflare's Configuration Rule to set the SSL mode to Flexible. Back in the Cloudflare console, go to "Websites" and select your transferred domain. Then go to the "SSL/TLS" tab and select the encryption mode as "Flexible".</p>
 			<div class="pt-2" data-nbd-spacer></div>
 			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Cloudflare Dashboard.png" alt="picture of Cloudflare dashboard" loading="lazy" decoding="async"></img>
-			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Enable Flexible Cloudflare.png" alt="picture of Cloudflare dashbaord" loading="lazy" decoding="async"></img>
+			<img class="object-fit-md-contain border rounded img-fit" src="../imgs/hosting_tutorial/Enable Flexible Cloudflare.png" alt="picture of Cloudflare dashboard" loading="lazy" decoding="async"></img>
 			<div class="pt-4" data-nbd-spacer></div>
-			<p>Now if you go to your site, it is served over https, success!</p>
+			<p>Now if you go to your site, it is served over HTTPS, success!</p>
 			<h2 id="conclusion">Conclusion</h2>
 			<p>
-			And there you have it! If you followed this tutorial then you have a fully functional static site that can be accessed anywhere in the world over https. I hope you found this useful or interesting. If you have any tips for how I could have better explained this, or any comments about how I could improve please email me. 
+			And there you have it! If you followed this tutorial, then you have a fully functional static site that can be accessed anywhere in the world over HTTPS. I hope you found this useful or interesting. If you have any tips for how I could have better explained this, or any comments about how I could improve, please email me. 
 			</p>
 			
 		</div>
 		<!--
 				Where do you select routing policy???
 		-->
-        <footer class="text-center"><!--TODO: Add responsive fixed bottom ->
+        <footer class="text-center"><!--TODO: Add responsive fixed bottom -->
             <!-- Grid container -->
             <div class="container p-4">
                 <!-- Section: Social media -->
